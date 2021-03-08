@@ -4,3 +4,4 @@ modules/target/
 smart_pointers/target/
 threads/target/
 traits/target/
+web_server/target/
