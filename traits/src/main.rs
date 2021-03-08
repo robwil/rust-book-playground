@@ -47,6 +47,8 @@ impl<'a> Draw for Button<'_> {
     }
 }
 
+use blog::Post;
+
 fn main() {
     let screen = Screen {
         components: vec![
@@ -64,4 +66,16 @@ fn main() {
         ],
     };
     screen.run();
+
+    let mut post = Post::new();
+
+    post.add_text("I ate a salad for lunch today");
+    assert_eq!("", post.content());
+
+    post.request_review();
+    assert_eq!("", post.content());
+
+    post.approve();
+    assert_eq!("I ate a salad for lunch today", post.content());
+    println!("The blog post content is \"{}\"", post.content());
 }
